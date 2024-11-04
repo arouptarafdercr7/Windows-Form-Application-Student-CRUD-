@@ -1,0 +1,21 @@
+﻿
+
+CREATE TABLE [dbo].[Department] (
+    [Id]   INT          IDENTITY (1, 1) NOT NULL,
+    [Name] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+Go
+
+CREATE TABLE [dbo].[Student] (
+    [Id]       INT          IDENTITY (1, 1) NOT NULL,
+    [Name]     VARCHAR (50) NULL,
+    [Fees]     MONEY        NULL,
+    [DOB]      DATE         NULL,
+    [isActive] BIT          NULL,
+    [DId]      INT          NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Student_ToTable] FOREIGN KEY ([DId]) REFERENCES [dbo].[Department] ([Id])
+);
+Go
+
